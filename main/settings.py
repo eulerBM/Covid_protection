@@ -30,6 +30,10 @@ INSTALLED_APPS = [
 
     #My_apps
     'index',
+    'protect',
+    'about',
+    'doctors',
+    'news',
 ]
 
 MIDDLEWARE = [
