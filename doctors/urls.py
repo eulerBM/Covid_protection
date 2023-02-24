@@ -3,7 +3,7 @@ from doctors.views import doctors
 
 
 urlpatterns = [
-    path('', doctors),
+    path('', doctors, name='doctors'),
 
    
 ]

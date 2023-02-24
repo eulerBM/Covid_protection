@@ -51,11 +51,11 @@
                         <div id="myNav" class="overlay">
                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                            <div class="overlay-content">
-                              <a href="index.html">Home</a>
-                              <a href="protect.html">Protect</a>
-                              <a href="about.html">About</a>
-                              <a href="doctors.html">Doctors</a>
-                              <a href="news.html">News</a>
+                              <a href="{% url 'index' %}">Home</a>
+                              <a href="{% url 'protect' %}">Protect</a>
+                              <a href="{% url 'about' %}">About</a>
+                              <a href="{% url 'doctors' %}">Doctors</a>
+                              <a href="{% url 'news' %}">News</a>
                            </div>
                         </div>
                         <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,7 @@
             <!-- banner section start -->
             <div class="container">
                <div class="about_taital_main">
-                  <h2 class="about_tag">About Corona Virus</h2>
+                  <h2 class="about_tag">Sobre o coronavírus</h2>
                   <div class="about_menu">
                      <ul>
                         <li><a href="index.html">Home</a></li>
@@ -88,9 +88,9 @@
                   <div class="about_img"><img src=" {% static 'images/img-1.png' %}"></div>
                </div>
                <div class="col-md-6">
-                  <h1 class="about_taital">Coronavirus what it is?</span></h1>
-                  <p class="about_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                  <div class="read_bt"><a href="#">Read More</a></div>
+                  <h1 class="about_taital">Coronavírus o que é?</span></h1>
+                  <p class="about_text">O coronavírus é uma família de vírus que pode causar doenças respiratórias em humanos e animais. A doença COVID-19 é causada por um novo tipo de coronavírus, o SARS-CoV-2, que se espalhou rapidamente pelo mundo desde o seu surgimento em 2019. Os sintomas variam de leves a graves e podem incluir febre, tosse, dificuldade para respirar e fadiga. A prevenção envolve medidas como distanciamento social, uso de máscara e higienização das mãos.</p>
+                  <div class="read_bt"><a href="#">Mais informação</a></div>
                </div>
             </div>
          </div>
@@ -102,23 +102,23 @@
             <div class="footer_section_2">
                <div class="row">
                   <div class="col-lg-3 col-sm-6">
-                     <h2 class="useful_text">Resources</h2>
+                     <h2 class="useful_text">Recursos</h2>
                      <div class="footer_menu">
                         <ul>
-                           <li><a href="#">What we do</a></li>
-                           <li><a href="#">Media</a></li>
-                           <li><a href="#">Travel Advice</a></li>
-                           <li><a href="#">Protection</a></li>
-                           <li><a href="#">Care</a></li>
+                           <li><a href="#">O que fazemos</a></li>
+                           <li><a href="#">Meios de comunicação</a></li>
+                           <li><a href="#">Recomendações de viagem</a></li>
+                           <li><a href="#">Proteção</a></li>
+                           <li><a href="#">Cuidado</a></li>
                         </ul>
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6">
-                     <h2 class="useful_text">About</h2>
+                     <h2 class="useful_text">Sobre</h2>
                      <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
                   </div>
                   <div class="col-lg-3 col-sm-6">
-                     <h2 class="useful_text">Contact Us</h2>
+                     <h2 class="useful_text">Contate-nos</h2>
                      <div class="location_text">
                         <ul>
                            <li>
@@ -137,7 +137,7 @@
                      </div>
                   </div>
                   <div class="col-lg-3 col-sm-6">
-                     <h2 class="useful_text">countrys</h2>
+                     <h2 class="useful_text">Países</h2>
                      <div class="map_image"><img src=" {% static 'images/map-bg.png' %}"></div>
                   </div>
                </div>

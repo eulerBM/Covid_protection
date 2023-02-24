@@ -3,5 +3,5 @@ from django.urls import path
 
 
 urlpatterns = [
-    path('', news ),
+    path('', news, name='news' ),
 ]
