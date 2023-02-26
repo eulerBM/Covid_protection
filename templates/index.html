@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="pt-br">
    <head>
       <!-- basic -->
@@ -226,13 +227,22 @@
       <!-- update section start -->
       <div class="update_section">
          <div class="container">
-            <h1 class="update_taital">Receba todas as atualizações.... </h1>
-            <form action="/action_page.php">
+            <h1 class="update_taital">Receba todas as atualizações...</h1>
+
+            <form action="" method='POST'>
+               {% csrf_token %}
                <div class="form-group">
-                   <textarea class="update_mail" placeholder="E-mail" rows="5" id="comment" name="Massage"></textarea>
+
+                   {% render_field form.email class="update_mail" placeholder="E-mail" rows="5" id="comment" name="Massage" %}
+
                </div>
-               <div class="subscribe_bt"><a href="#">Inscreva-se agora</a></div>
+
+               
+
+               <div  type='submit' class="subscribe_bt"><a href=""><button type='submit' >Inscreva-se agora</button></a></div>
+
             </form>
+
          </div>
       </div>
       <!-- update section end -->
