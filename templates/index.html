@@ -46,7 +46,18 @@
                         <div class="togle_">
                            <div class="menu_main">
                               <ul>
-                                 <li><a href="#">Login</a></li>
+
+                                 {% if not request.user.is_authenticated %}
+                                    
+                                    <li><a href="{% url 'account_login' %}">Login</a></li>
+
+                                 {% else %}
+
+                                    <li><a href="{% url 'account_logout' %}">Sair</a></li>
+
+                                 {% endif %}
+
+
                                  <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                               </ul>
                            </div>

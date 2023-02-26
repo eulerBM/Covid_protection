@@ -7,6 +7,9 @@ urlpatterns = [
     # Admin
     path('admin/', admin.site.urls),
 
+    # Allauth
+    path('accounts/', include('allauth.urls')),
+
     # Index
     path('home/', include('index.urls')),
 
@@ -21,4 +24,5 @@ urlpatterns = [
 
     # About
     path('about/', include('about.urls')),
+
 ]
