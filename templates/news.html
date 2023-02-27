@@ -43,8 +43,18 @@
                         <div class="togle_">
                            <div class="menu_main">
                               <ul>
-                                 <li><a href="#">Login</a></li>
-                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                                 
+                                 {% if not request.user.is_authenticated %}
+                                    
+                                    <li><a href="{% url 'account_login' %}">Login</a></li>
+
+                                 {% else %}
+
+                                    <li><a href="{% url 'account_logout' %}">Sair</a></li>
+
+                                 {% endif %}
+
+                                 
                               </ul>
                            </div>
                         </div>
@@ -81,57 +91,43 @@
       </div>
       <!-- header section end -->
       <!-- news section start -->
+
+
       <div class="news_section layout_padding">
-         <div class="container">
-            <div id="main_slider" class="carousel slide" data-ride="carousel">
-               <div class="carousel-inner">
-                  <div class="carousel-item active">
-                     <h1 class="news_taital">Últimas notícias</h1>
-                     <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                     <div class="news_section_2 layout_padding">
+         {% for article in articles %}
+            <div class="container">
+               <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                  <h1 class="news_taital">{{ article.title }}</h1>
+                  <div class="news_section_2 layout_padding">
                         <div class="box_main">
-                           <div class="image_1"><img src=" {% static 'images/news-img.png' %}"></div>
-                           <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                           <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                           <div class="read_btn"><a href="#">Read More</a></div>
+
+                           {% if article.urlToImage  %}
+                              <div class="image_1"><img src=" {{ article.urlToImage }} "></div>
+                           {% else %}
+                              <div class="image_1"><img src=" {% static 'images/news-img.png' %}"></div>
+                           {% endif %}
+
+                           {% if article.description %}
+                              <p class="lorem_text">{{ article.description }}</p>
+                           {% else %}
+                              <p class="lorem_text">Clique em saiber mais, para ver o artigo</p>
+                           {% endif %}
+
+                           <div class="read_btn"><a href=" {{ article.url }}">Mais informação</a></div>
                         </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <h1 class="news_taital">Últimas notícias</h1>
-                     <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                     <div class="news_section_2 layout_padding">
-                        <div class="box_main">
-                           <div class="image_1"><img src=" {% static 'images/news-img.png' %}"></div>
-                           <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                           <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                           <div class="read_btn"><a href="#">Read More</a></div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <h1 class="news_taital">Últimas notícias</h1>
-                     <p class="news_text">when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using</p>
-                     <div class="news_section_2 layout_padding">
-                        <div class="box_main">
-                           <div class="image_1"><img src=" {% static 'images/news-img.png' %}"></div>
-                           <h2 class="design_text">Coronavirus is Very dangerous</h2>
-                           <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
-                           <div class="read_btn"><a href="#">Read More</a></div>
-                        </div>
-                     </div>      
                   </div>
                </div>
-               <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
-               <i class="fa fa-angle-left"></i>
-               </a>
-               <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
-               <i class="fa fa-angle-right"></i>
-               </a>
             </div>
-            </div>
+         {% endfor %}
          </div>
       </div>
+      
+
+
+
+
+
+
       <!-- news section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
@@ -152,14 +148,14 @@
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Sobre</h2>
-                     <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
+                     <p class="footer_text">O site de notícias sobre Covid traz informações atualizadas e relevantes sobre a pandemia que assola o mundo. Através de artigos e reportagens, é possível ficar por dentro das últimas novidades e avanços científicos na luta contra o vírus. Com conteúdo confiável e de qualidade, o site é uma ferramenta importante para se manter informado e tomar decisões conscientes sobre como lidar com a crise sanitária.</p>
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Contate-nos</h2>
                      <div class="location_text">
                         <ul>
                            <li>
-                              <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                              <a href="https://www.google.com/maps/place/Santa+Catarina,+Crici%C3%BAma+-+State+of+Santa+Catarina/@-28.6730727,-49.3850931,16z/data=!3m1!4b1!4m6!3m5!1s0x95218292262b21b5:0xf2492962c77cb62a!8m2!3d-28.6714994!4d-49.3818168!16s%2Fg%2F1ymwflj1b"><i class="fa fa-map-marker" aria-hidden="true"></i>
                               <span class="padding_15">Location</span></a>
                            </li>
                            <li>

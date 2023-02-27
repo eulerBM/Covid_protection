@@ -90,7 +90,7 @@
                            <div class="container">
                               <h1 class="banner_taital">Obter cuidados médicos precocemente</h1>
                               <p class="banner_text">Cuidados médicos precoces são essenciais para uma recuperação mais rápida e eficaz.</p>
-                              <div class="more_bt"><a href="#">Mais informação</a></div>
+                              <div class="more_bt"><a href="https://www.joia.rs.gov.br/noticia/visualizar/id/1305/?coronavirus-covid-19-cuidados-e-recomendacoes.html">Mais informação</a></div>
                            </div>
                         </div>
                         <div class="col-md-6">
@@ -152,9 +152,9 @@
             <div class="protect_section_2 layout_padding">
                <div class="row">
                   <div class="col-md-6">
-                     <h1 class="hands_text"><a href="#"> Lave seu <br> mãos com frequência</a></h1>
-                     <h1 class="hands_text_2"><a href="#"> manter social <br>distanciar</a></h1>
-                     <h1 class="hands_text"><a href="#"> Evite tocar os olhos,<br>nariz e boca</a></h1>
+                     <h1 class="hands_text"><a href="https://www.gov.br/saude/pt-br/coronavirus/como-se-proteger"> Lave seu <br> mãos com frequência</a></h1>
+                     <h1 class="hands_text_2"><a href="https://www.gov.br/saude/pt-br/coronavirus/como-se-proteger"> manter social <br>distanciar</a></h1>
+                     <h1 class="hands_text"><a href="https://www.gov.br/saude/pt-br/coronavirus/como-se-proteger"> Evite tocar os olhos,<br>nariz e boca</a></h1>
                   </div>
                   <div class="col-md-6">
                      <div class="image_2"><img src=" {% static 'images/img-2.png' %}"></div>
@@ -174,7 +174,7 @@
                <div class="col-md-6">
                   <h1 class="about_taital">Coronavírus o que é?</span></h1>
                   <p class="about_text">O coronavírus é uma família de vírus que pode causar desde resfriados comuns até doenças mais graves, como a COVID-19. Esse vírus é altamente contagioso e pode ser transmitido pelo ar ou pelo contato com superfícies contaminadas. É importante seguir as medidas de prevenção para evitar sua propagação.</p>
-                  <div class="read_bt"><a href="#">Mais informação</a></div>
+                  <div class="read_bt"><a href="https://www.gov.br/saude/pt-br/coronavirus/o-que-e-o-coronavirus">Mais informação</a></div>
                </div>
             </div>
          </div>
@@ -212,7 +212,7 @@
                   <div class="news_section_2 layout_padding">
                         <div class="box_main">
 
-                           {% if article.urlToImage  %}
+                           {% if  article.urlToImage  %}
                               <div class="image_1"><img src=" {{ article.urlToImage }} "></div>
                            {% else %}
                               <div class="image_1"><img src=" {% static 'images/news-img.png' %}"></div>
@@ -231,6 +231,7 @@
             </div>
          {% endfor %}
          </div>
+      </div>
 
       
       
@@ -244,13 +245,20 @@
                {% csrf_token %}
                <div class="form-group">
 
-                   {% render_field form.email class="update_mail" placeholder="E-mail" rows="5" id="comment" name="Massage" %}
+                  {% if request.user.is_authenticated and request.user.email  %}
+
+                     <h4 class="update_mail"> Parabéns voce ja vincolou um email :D</h4>
+
+                  {% else %}
+
+                     {% render_field form.email class="update_mail" placeholder="E-mail" rows="5" id="comment" name="Massage" %}
+
+                     <div  type='submit' class="subscribe_bt"><a href=""><button type='submit' >Inscreva-se agora</button></a></div>
+
+                  {% endif %}
 
                </div>
-
-               
-
-               <div  type='submit' class="subscribe_bt"><a href=""><button type='submit' >Inscreva-se agora</button></a></div>
+          
 
             </form>
 
@@ -276,14 +284,14 @@
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Sobre</h2>
-                     <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
+                     <p class="footer_text">O site de notícias sobre Covid traz informações atualizadas e relevantes sobre a pandemia que assola o mundo. Através de artigos e reportagens, é possível ficar por dentro das últimas novidades e avanços científicos na luta contra o vírus. Com conteúdo confiável e de qualidade, o site é uma ferramenta importante para se manter informado e tomar decisões conscientes sobre como lidar com a crise sanitária.</p>
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Contate-nos</h2>
                      <div class="location_text">
                         <ul>
                            <li>
-                              <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                              <a href="https://www.google.com/maps/place/Santa+Catarina,+Crici%C3%BAma+-+State+of+Santa+Catarina/@-28.6730727,-49.3850931,16z/data=!3m1!4b1!4m6!3m5!1s0x95218292262b21b5:0xf2492962c77cb62a!8m2!3d-28.6714994!4d-49.3818168!16s%2Fg%2F1ymwflj1b"><i class="fa fa-map-marker" aria-hidden="true"></i>
                               <span class="padding_15">Location</span></a>
                            </li>
                            <li>

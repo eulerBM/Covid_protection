@@ -43,8 +43,17 @@
                         <div class="togle_">
                            <div class="menu_main">
                               <ul>
-                                 <li><a href="#">Login</a></li>
-                                 <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+
+                                 {% if not request.user.is_authenticated %}
+                                    
+                                    <li><a href="{% url 'account_login' %}">Login</a></li>
+
+                                 {% else %}
+
+                                    <li><a href="{% url 'account_logout' %}">Sair</a></li>
+
+                                 {% endif %}
+
                               </ul>
                            </div>
                         </div>
@@ -92,7 +101,7 @@
                      <div class="taital_right">
                         <h1 class="doctor_taital">O que os médicos dizem..</h1>
                         <p class="doctor_text">Os médicos alertam que o coronavírus é altamente contagioso e pode ser fatal, especialmente para pessoas mais velhas ou com condições de saúde subjacentes. Eles recomendam medidas preventivas, como distanciamento social, uso de máscaras, lavagem frequente das mãos e evitar grandes reuniões para diminuir a propagação do vírus. O tratamento depende dos sintomas e gravidade da doença e pode incluir cuidados de suporte ou medicamentos específicos.</p>
-                        <div class="readmore_bt"><a href="#">Mais informação</a></div>
+                        <div class="readmore_bt"><a href="https://covid.saude.gov.br/">Mais informação</a></div>
                      </div>
                   </div>
                </div>
@@ -119,14 +128,14 @@
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Sobre</h2>
-                     <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
+                     <p class="footer_text">O site de notícias sobre Covid traz informações atualizadas e relevantes sobre a pandemia que assola o mundo. Através de artigos e reportagens, é possível ficar por dentro das últimas novidades e avanços científicos na luta contra o vírus. Com conteúdo confiável e de qualidade, o site é uma ferramenta importante para se manter informado e tomar decisões conscientes sobre como lidar com a crise sanitária.</p>
                   </div>
                   <div class="col-lg-3 col-sm-6">
                      <h2 class="useful_text">Contate-nos</h2>
                      <div class="location_text">
                         <ul>
                            <li>
-                              <a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                              <a href="https://www.google.com/maps/place/Santa+Catarina,+Crici%C3%BAma+-+State+of+Santa+Catarina/@-28.6730727,-49.3850931,16z/data=!3m1!4b1!4m6!3m5!1s0x95218292262b21b5:0xf2492962c77cb62a!8m2!3d-28.6714994!4d-49.3818168!16s%2Fg%2F1ymwflj1b"><i class="fa fa-map-marker" aria-hidden="true"></i>
                               <span class="padding_15">Location</span></a>
                            </li>
                            <li>
