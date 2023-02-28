@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import requests
 from index.forms import *
+from index.signals import send_email
 
 def index(request):
 
@@ -22,6 +23,7 @@ def index(request):
 
         if form_email.is_valid():
             form_email.save()
+            
             
             
         
