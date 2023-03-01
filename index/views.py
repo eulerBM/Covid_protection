@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 import requests
 from index.forms import *
-from index.signals import send_email
 
 def index(request):
 
@@ -14,6 +13,7 @@ def index(request):
         context = {
             'articles': articles,
             'form':email(),
+
         }
 
         return render (request, 'index.html', context)
@@ -22,10 +22,7 @@ def index(request):
         form_email = email(request.POST)
 
         if form_email.is_valid():
-            form_email.save()
-            
-            
-            
+            form_email.save()      
         
         return redirect('index')
 

@@ -11,7 +11,7 @@ def news(request):
 
         context = {
             'articles': articles,
-            
+              
         }
 
     return render (request, 'news.html', context)

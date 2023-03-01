@@ -1,4 +1,10 @@
 from django.shortcuts import render
 
 def about(request):
-    return render (request, 'about.html')
+
+    if request.method == 'GET':
+        return render (request, 'about.html')
+    
+    else:
+        return render (request, 'about.html')
+
